@@ -1,5 +1,7 @@
 class Card < ApplicationRecord
+  validates :title, :description, presence: true
+
   belongs_to :list
-  belongs_to :owner
-  has_many :comments, as: :commentable
+  belongs_to :user
+  has_many :comments, as: :commentable, dependent: :destroy
 end
