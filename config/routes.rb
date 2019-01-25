@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   apipie
+  get "/" => redirect("/apipie")
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope :taskboard do
     scope :api, defaults: { formats: :json } do
