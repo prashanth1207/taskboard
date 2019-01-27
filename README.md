@@ -1,6 +1,6 @@
-#Taskboard
+# Taskboard
 
-##Models
+## Models
 
 * User
 **	Member
@@ -9,7 +9,7 @@
 * Card
 * Comment
 
-##Relations
+## Relations
 
 Single table Inheritance is done for admin and member model
 Admin can create many Lists(one-to-many)
@@ -17,7 +17,7 @@ List has many memebers(added by admin) and members can belong to many lists(many
 List has many Cards(one-to-many)
 Card has many Comments && Comments can have many comments(replies)(one-to-many with polymorphic relation on commentable)
 
-##Api-endpoints
+## Api-endpoints
 
 We have four controllers for each model
 and all the endpoints for each controller is documented through apipie
