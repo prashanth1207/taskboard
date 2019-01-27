@@ -6,7 +6,7 @@ module V1
     include CardDoc
     def index
       cards = @list.cards.where(user_id: current_user.id)
-      render json: cards
+      render json: cards.order(comments_count: :desc)
     end
 
     def show
@@ -21,11 +21,13 @@ module V1
     end
 
     def update
+      return access_denied unless @card.owner?(current_user.id)
       @card.update(card_params)
       render json: @card
     end
 
     def destroy
+      return access_denied unless @card.owner?(current_user.id) || @list.owner?(current_user.id)
       @card.destroy
       render json: { status: :success }
     end

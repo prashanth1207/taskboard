@@ -5,7 +5,6 @@ module V1
     include CommentDoc
     def index
       comments = Comment.where(commentable_id: params[:resource_id])
-      total_count = comments.count
       render json: comments.page(params[:page], params[:per_page]).order(created_at: :asc)
     end
 

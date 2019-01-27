@@ -8,6 +8,7 @@ class List < ApplicationRecord
   belongs_to :owner, class_name: 'Admin', foreign_key: 'owner_id', optional: true
 
   def assign_members(member_ids=[])
+    member_ids.delete(owner_id)
     self.members << Member.find(member_ids)
   end
 
