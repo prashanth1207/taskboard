@@ -5,7 +5,6 @@ module V1
     include UserDoc
     def index
       request_scope = User.all
-      total_count = request_scope.count
       users = request_scope.page(params[:page], params[:per_page])
       render json: users
     end
