@@ -3,8 +3,8 @@
 ## Models
 
 * User
-**	Member
-**	Admin
+  *	Member
+  *	Admin
 * List
 * Card
 * Comment
